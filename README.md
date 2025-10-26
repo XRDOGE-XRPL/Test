@@ -191,273 +191,272 @@ Password: password123
 # Or use the API
 curl -X POST http://localhost:3000/api/auth/register \
   -H "Content-Type: application/json" \
-    -d '{"username":"newuser","password":"password123"}'
-    ```
+  -d '{"username":"newuser","password":"password123"}'
+```
 
-    ### API Documentation
+### API Documentation
 
-    See [API_DOCS.md](./API_DOCS.md) for complete API reference.
+See [API_DOCS.md](./API_DOCS.md) for complete API reference.
 
-    ---
+---
 
-    ## 🐳 Docker Deployment
+## 🐳 Docker Deployment
 
-    ### Build Image
+### Build Image
 
-    ```bash
-    docker build -t web-ide:latest .
-    ```
+```bash
+docker build -t web-ide:latest .
+```
 
-    ### Run Container
+### Run Container
 
-    ```bash
-    docker run -p 3000:3000 \
-      -e JWT_SECRET=your-secret \
-        -e MYSQL_HOST=mysql \
-          web-ide:latest
-          ```
+```bash
+docker run -p 3000:3000 \
+  -e JWT_SECRET=your-secret \
+  -e MYSQL_HOST=mysql \
+  web-ide:latest
+```
 
-          ### Docker Compose
+### Docker Compose
 
-          ```bash
-          docker-compose up -d
-          docker-compose logs -f
-          docker-compose down
-          ```
+```bash
+docker-compose up -d
+docker-compose logs -f
+docker-compose down
+```
 
-          ---
+---
 
-          ## 📦 Deployment
+## 📦 Deployment
 
-          ### Production Deployment
+### Production Deployment
 
-          See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment guide covering:
-          - Docker deployment
-          - Direct Node.js deployment
-          - Cloud deployment (AWS, Heroku, DigitalOcean)
-          - Security configuration
-          - Monitoring and logging
-          - Continuous deployment
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment guide covering:
+- Docker deployment
+- Direct Node.js deployment
+- Cloud deployment (AWS, Heroku, DigitalOcean)
+- Security configuration
+- Monitoring and logging
+- Continuous deployment
 
-          ### Environment Variables
+### Environment Variables
 
-          ```bash
-          # Copy and configure
-          cp .env.example .env
+```bash
+# Copy and configure
+cp .env.example .env
 
-          # Key variables
-          NODE_ENV=production
-          PORT=3000
-          JWT_SECRET=your-secret-key
-          MYSQL_HOST=localhost
-          MYSQL_USER=root
-          MYSQL_PASSWORD=root
-          MYSQL_DATABASE=web_ide
-          ```
+# Key variables
+NODE_ENV=production
+PORT=3000
+JWT_SECRET=your-secret-key
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=root
+MYSQL_DATABASE=web_ide
+```
 
-          ---
+---
 
-          ## 🧪 Testing
+## 🧪 Testing
 
-          ### Run Tests
+### Run Tests
 
-          ```bash
-          npm test
-          ```
+```bash
+npm test
+```
 
-          ### Load Testing
+### Load Testing
 
-          ```bash
-          # Install Apache Bench
-          sudo apt-get install apache2-utils
+```bash
+# Install Apache Bench
+sudo apt-get install apache2-utils
 
-          # Run load test
-          ab -n 1000 -c 10 http://localhost:3000/
-          ```
+# Run load test
+ab -n 1000 -c 10 http://localhost:3000/
+```
 
-          ---
+---
 
-          ## 🔄 Development
+## 🔄 Development
 
-          ### Development Server
+### Development Server
 
-          ```bash
-          npm run dev
-          ```
+```bash
+npm run dev
+```
 
-          ### Build Frontend
+### Build Frontend
 
-          ```bash
-          npm run build
-          ```
+```bash
+npm run build
+```
 
-          ### Format Code
+### Format Code
 
-          ```bash
-          npm run format
-          ```
+```bash
+npm run format
+```
 
-          ### Lint Code
+### Lint Code
 
-          ```bash
-          npm run lint
-          ```
+```bash
+npm run lint
+```
 
-          ---
+---
 
-          ## 📊 Performance
+## 📊 Performance
 
-          ### Optimization Tips
+### Optimization Tips
 
-          1. **Enable Caching** - Use Redis for session caching
-          2. **Database Indexing** - Create indexes on frequently queried columns
-          3. **Frontend Optimization** - Minify and compress assets
-          4. **Load Balancing** - Use Nginx for load distribution
-          5. **CDN** - Serve static assets from CDN
+1. **Enable Caching** - Use Redis for session caching
+2. **Database Indexing** - Create indexes on frequently queried columns
+3. **Frontend Optimization** - Minify and compress assets
+4. **Load Balancing** - Use Nginx for load distribution
+5. **CDN** - Serve static assets from CDN
 
-          ### Benchmarks
+### Benchmarks
 
-          | Operation | Time |
-          |:---|:---|
-          | Code Execution | < 1s |
-          | Image Generation | 10-60s |
-          | Video Rendering | 1-5m |
-          | PDF Generation | 5-30s |
-          | Database Query | < 1s |
+| Operation | Time |
+|:---|:---|
+| Code Execution | < 1s |
+| Image Generation | 10-60s |
+| Video Rendering | 1-5m |
+| PDF Generation | 5-30s |
+| Database Query | < 1s |
 
-          ---
+---
 
-          ## 🆘 Troubleshooting
+## 🆘 Troubleshooting
 
-          ### Common Issues
+### Common Issues
 
-          **Port 3000 already in use**
-          ```bash
-          lsof -i :3000
-          kill -9 <PID>
-          ```
+**Port 3000 already in use**
+```bash
+lsof -i :3000
+kill -9 <PID>
+```
 
-          **Database connection error**
-          ```bash
-          # Check MySQL service
-          sudo systemctl status mysql
-          sudo systemctl restart mysql
-          ```
+**Database connection error**
+```bash
+# Check MySQL service
+sudo systemctl status mysql
+sudo systemctl restart mysql
+```
 
-          **Out of memory**
-          ```bash
-          node --max-old-space-size=4096 server.js
-          ```
+**Out of memory**
+```bash
+node --max-old-space-size=4096 server.js
+```
 
-          See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for more solutions.
+See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for more solutions.
 
-          ---
+---
 
-          ## 📝 Documentation
+## 📝 Documentation
 
-          - [API Documentation](./API_DOCS.md)
-          - [Deployment Guide](./DEPLOYMENT.md)
-          - [Architecture Guide](./ARCHITECTURE.md)
-          - [Contributing Guide](./CONTRIBUTING.md)
-          - [Troubleshooting](./TROUBLESHOOTING.md)
+- [API Documentation](./API_DOCS.md)
+- [Deployment Guide](./DEPLOYMENT.md)
+- [Architecture Guide](./ARCHITECTURE.md)
+- [Contributing Guide](./CONTRIBUTING.md)
+- [Troubleshooting](./TROUBLESHOOTING.md)
 
-          ---
+---
 
-          ## 🤝 Contributing
+## 🤝 Contributing
 
-          Contributions are welcome! Please follow these steps:
+Contributions are welcome! Please follow these steps:
 
-          1. Fork the repository
-          2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-          3. Commit changes (`git commit -m 'Add amazing feature'`)
-          4. Push to branch (`git push origin feature/amazing-feature`)
-          5. Open a Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-          ---
+---
 
-          ## 📄 License
+## 📄 License
 
-          This project is licensed under the MIT License - see [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see [LICENSE](./LICENSE) file for details.
 
-          ---
+---
 
-          ## 🙏 Acknowledgments
+## 🙏 Acknowledgments
 
-          - Monaco Editor - Code editing
-          - Socket.io - Real-time communication
-          - Express.js - Web framework
-          - React - Frontend framework
-          - MySQL - Database
+- Monaco Editor - Code editing
+- Socket.io - Real-time communication
+- Express.js - Web framework
+- React - Frontend framework
+- MySQL - Database
 
-          ---
+---
 
-          ## 📞 Support
+## 📞 Support
 
-          - **Documentation**: See [docs](./docs) folder
-          - **Issues**: [GitHub Issues](https://github.com/yourusername/web-ide/issues)
-          - **Discussions**: [GitHub Discussions](https://github.com/yourusername/web-ide/discussions)
-          - **Email**: support@web-ide.com
+- **Documentation**: See [docs](./docs) folder
+- **Issues**: [GitHub Issues](https://github.com/yourusername/web-ide/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/web-ide/discussions)
+- **Email**: support@web-ide.com
 
-          ---
+---
 
-          ## 🗺️ Roadmap
+## 🗺️ Roadmap
 
-          - [ ] Real-time collaboration
-          - [ ] Advanced AI features
-          - [ ] Mobile app
-          - [ ] Plugin system
-          - [ ] Advanced analytics
-          - [ ] Team management
-          - [ ] Version control
-          - [ ] Backup & restore
+- [ ] Real-time collaboration
+- [ ] Advanced AI features
+- [ ] Mobile app
+- [ ] Plugin system
+- [ ] Advanced analytics
+- [ ] Team management
+- [ ] Version control
+- [ ] Backup & restore
 
-          ---
+---
 
-          ## 📈 Statistics
+## 📈 Statistics
 
-          - **7 Independent Modules**
-          - **50+ API Endpoints**
-          - **50+ Supported Languages**
-          - **100+ Components**
-          - **5000+ Lines of Code**
+- **7 Independent Modules**
+- **50+ API Endpoints**
+- **50+ Supported Languages**
+- **100+ Components**
+- **5000+ Lines of Code**
 
-          ---
+---
 
-          ## 🎯 Use Cases
+## 🎯 Use Cases
 
-          - **Full-stack Development** - Code, test, deploy
-          - **Content Creation** - Videos, images, books
-          - **Learning & Education** - Interactive coding tutorials
-          - **DevOps** - Server simulation and management
-          - **Data Analysis** - Database management and queries
-          - **Digital Publishing** - Book and content creation
-          - **Automation** - Script development and execution
+- **Full-stack Development** - Code, test, deploy
+- **Content Creation** - Videos, images, books
+- **Learning & Education** - Interactive coding tutorials
+- **DevOps** - Server simulation and management
+- **Data Analysis** - Database management and queries
+- **Digital Publishing** - Book and content creation
+- **Automation** - Script development and execution
 
-          ---
+---
 
-          ## 🚀 Version History
+## 🚀 Version History
 
-          ### v3.0.0 (Current)
-          - Complete All-In-One Platform
-          - 7 independent modules
-          - Modular architecture
-          - Production-ready deployment
+### v3.0.0 (Current)
+- Complete All-In-One Platform
+- 7 independent modules
+- Modular architecture
+- Production-ready deployment
 
-          ### v2.0.0
-          - Added Video, Image, Book generators
-          - Database Manager
-          - Server Simulator
+### v2.0.0
+- Added Video, Image, Book generators
+- Database Manager
+- Server Simulator
 
-          ### v1.0.0
-          - Initial IDE release
-          - Code editor
-          - Terminal
-          - File explorer
+### v1.0.0
+- Initial IDE release
+- Code editor
+- Terminal
+- File explorer
 
-          ---
+---
 
-          **Web-IDE v3.0.0 - The Complete Development & Content Creation Platform** 🚀
+**Web-IDE v3.0.0 - The Complete Development & Content Creation Platform** 🚀
 
-          Made with ❤️ for developers and creators
+Made with ❤️ for developers and creators
 
-          
