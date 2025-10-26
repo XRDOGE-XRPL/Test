@@ -6,10 +6,14 @@
     "start": "node server.js",
     "dev": "node server.js",
     "build": "node build.js",
-    "lint": "node -e \"console.log('no linter configured')\"",
-    "test": "node test/run-tests.js"
+    "lint": "eslint . --ext .js",
+    "test": "jest --passWithNoTests"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "jest": "^30.2.0"
   }
 }
