@@ -1,5 +1,10 @@
 node_modules/
-dist/
 build.log
 npm-debug.log*
 /.env
+
+# Ignore build output directory
+/dist/
+
+# Optional local env files
+.env
